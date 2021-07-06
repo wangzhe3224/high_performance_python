@@ -1,10 +1,14 @@
 from typing import List
 import time
 from functools import wraps
+import line_profiler
+
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
+from numpy.core.fromnumeric import mean
 
+# profile = line_profiler.LineProfiler()
 x1, x2, y1, y2 = -1.8, 1.8, -1.8, 1.8 
 # These parameter will affect plot a lot!
 # c_real, c_imag = -0.82772, -.82193
@@ -37,6 +41,7 @@ def list_to_matrix(output):
     return matrix
 
 # @timefn
+@profile
 def calculate_z_serial_purepython(max_iter, zs, cs):
     output = [0] * len(zs)
     for i in range(len(zs)):
@@ -86,7 +91,7 @@ def calc_pure_python(width: int, max_iter: int):
 
 if __name__ == "__main__":
 
-    width = 1000
+    width = 100
     max_iter = 300
     out = calc_pure_python(width, max_iter)
 
