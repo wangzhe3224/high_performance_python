@@ -38,6 +38,7 @@ def list_to_matrix(output):
 
 # @timefn
 def calculate_z_serial_purepython(max_iter, zs, cs):
+    # 负责计算每一个坐标点的”强度“
     output = [0] * len(zs)
     for i in range(len(zs)):
         n = 0
@@ -74,12 +75,12 @@ def calc_pure_python(width: int, max_iter: int):
     print(f"Length of x: {len(x)}")
     print(f"Total elements: {len(zs)}")
 
+    # 这里我们进行一个简单的计时，来粗略估计函数的运行时间。
     start_time = time.time()
     output = calculate_z_serial_purepython(max_iter, zs, cs)
     end_time = time.time()
     secs = end_time - start_time
     print(f"{calculate_z_serial_purepython.__name__} took {secs} seconds.")
-    # assert sum(output) == 33219980
     print(f"{sum(output) = }")
     return output
 

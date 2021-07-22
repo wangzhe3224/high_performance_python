@@ -1,7 +1,8 @@
 from typing import List
 import time
 from functools import wraps
-import line_profiler
+# import line_profiler
+import memory_profiler
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -40,7 +41,6 @@ def list_to_matrix(output):
     matrix = np.array(output).reshape((n, n))
     return matrix
 
-# @timefn
 @profile
 def calculate_z_serial_purepython(max_iter, zs, cs):
     output = [0] * len(zs)
@@ -55,6 +55,7 @@ def calculate_z_serial_purepython(max_iter, zs, cs):
     return output
 
 
+@profile
 def calc_pure_python(width: int, max_iter: int):
     """ Create a list of complex coordinates """
     x_step = ( x2 - x1 ) / width
@@ -91,7 +92,7 @@ def calc_pure_python(width: int, max_iter: int):
 
 if __name__ == "__main__":
 
-    width = 100
+    width = 1000
     max_iter = 300
     out = calc_pure_python(width, max_iter)
 

@@ -40,7 +40,6 @@ def list_to_matrix(output):
     matrix = np.array(output).reshape((n, n))
     return matrix
 
-# @timefn
 @profile
 def calculate_z_serial_purepython(max_iter, zs, cs):
     output = [0] * len(zs)
