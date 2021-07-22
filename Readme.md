@@ -7,3 +7,8 @@
 ## Ref
 
 - High Performance Python
+
+## 泛程序员
+
+- ![FanCoder](assets/FanCoder.jpeg)
+- ![Python知否](assets/Zhifou.JPG)
